@@ -14,8 +14,8 @@ Usage
 -----
 Compile it:
 
-	`javac src/com/ksetyadi/randompair/RandomPair.java`
+	javac src/com/ksetyadi/randompair/RandomPair.java
 	
 and then run:
 
-	`java com.ksetyadi.randompair.RandomPair < people_list.txt`
+	java com.ksetyadi.randompair.RandomPair < people_list.txt
