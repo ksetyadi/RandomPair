@@ -19,3 +19,47 @@ Compile it:
 and then run:
 
 	java com.ksetyadi.randompair.RandomPair < people_list.txt
+	
+Example
+-------
+
+EXAMPLE 1
+
+Everyone has the same level so you want to randomly form them directly into the team.
+
+Example Input:
+Satya
+Armanto
+Ksetyadi
+Robby
+Yanbul
+Ary
+Levady
+Wandre
+
+Example Output:
+Team #1: Robby - Satya
+Team #2: Ksetyadi - Wandre
+Team #3: Ary - Levady
+Team #4: Yanbul - Armanto
+
+
+EXAMPLE 2
+
+Some people have different level. You want to team up those people so there is no team with both member have the same level.
+
+Example Input:
+#Satya
+Armanto
+Ksetyadi
+#Robby
+#Yanbul
+Ary
+#Levady
+Wandre
+
+Example Output:
+Team #1: Levady - Wandre
+Team #2: Robby - Ksetyadi
+Team #3: Armanto - Satya
+Team #4: Ary - Yanbul

@@ -10,7 +10,10 @@ import java.util.Set;
 
 public class RandomPair {
 	private static List<String> originalList;
+	private static List<String> playoffList;
 	private static Map<String, String> resultPair;
+	
+	private static boolean playoffMode = false;
 	
 	public static void main(String[] args) {
 		
@@ -20,15 +23,42 @@ public class RandomPair {
 		
 		while(s.hasNextLine()) {
 			String line = s.nextLine();
+			
+			if (line.charAt(0) == '#') {
+				
+				if (!playoffMode) {
+					playoffList = new ArrayList<String>();
+					playoffMode = true;
+				}
+				
+				playoffList.add(line.substring(1, line.length()));
+				continue;
+			}
+			
 			originalList.add(line);
 		}
 		
-		if (originalList.size() % 2 != 0) {
-			System.out.println("The number of entity should be even.");
-			return;
+		if (playoffMode) {
+			if (playoffList.size() != originalList.size()) {
+				System.out.println("The list between playoff (" +
+						playoffList.size() + ") and non-playoff (" +
+								originalList.size() + ") is different. ");
+				
+				return;
+			}
+		} else {
+			if (originalList.size() % 2 != 0) {
+				System.out.println("The number of entity should be even.");
+				return;
+			}
 		}
 		
-		resultPair = generateResultPair(originalList);
+		if (playoffMode) {
+			resultPair = generateResultPair(playoffList, originalList);
+		} else {
+			resultPair = generateResultPair(originalList);
+		}
+		
 		Set<String> keySet = resultPair.keySet();
 
 		int i = 1;
@@ -49,6 +79,23 @@ public class RandomPair {
 
 		for (int i = 0; i < threshold; i++) {
 			result.put(list.get(i), list.get((listSize - 1) - i));
+		}
+		
+		return result;
+	}
+	
+	private static Map<String, String> generateResultPair(List<String> playoffList,
+			List<String> originalList) {
+		
+		Collections.shuffle(playoffList);
+		Collections.shuffle(originalList);
+		
+		int size = playoffList.size();
+		
+		Map<String, String> result = new HashMap<String, String>();
+		
+		for (int i = 0; i < size; i++) {
+			result.put(playoffList.get(i), originalList.get(i));
 		}
 		
 		return result;
