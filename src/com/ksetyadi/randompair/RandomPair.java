@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class RandomPair {
 	private static List<String> originalList;
@@ -18,7 +19,8 @@ public class RandomPair {
 		Scanner s = new Scanner(System.in);
 		
 		while(s.hasNextLine()) {
-			originalList.add(s.nextLine());
+			String line = s.nextLine();
+			originalList.add(line);
 		}
 		
 		if (originalList.size() % 2 != 0) {
@@ -27,8 +29,14 @@ public class RandomPair {
 		}
 		
 		resultPair = generateResultPair(originalList);
+		Set<String> keySet = resultPair.keySet();
+
+		int i = 1;
 		
-		System.out.println(resultPair.toString());
+		for (String key : keySet) {
+			System.out.printf("Team #%d: %s - %s\n", i, key, resultPair.get(key));
+			i++;
+		}
 	}
 	
 	private static Map<String, String> generateResultPair(List<String> list) {
