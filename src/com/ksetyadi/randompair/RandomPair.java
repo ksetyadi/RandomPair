@@ -48,7 +48,7 @@ public class RandomPair {
 			}
 		} else {
 			if (originalList.size() % 2 != 0) {
-				System.out.println("The number of entity should be even.");
+				System.out.println("The number of entities should be even.");
 				return;
 			}
 		}
