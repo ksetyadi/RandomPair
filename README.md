@@ -49,17 +49,17 @@ EXAMPLE 2
 Some people have different level. You want to team up those people so there is no team with both member have the same level.
 
 Example Input:
-#Satya
-Armanto
-Ksetyadi
-#Robby
-#Yanbul
-Ary
-#Levady
-Wandre
+`#Satya`
+`Armanto`
+`Ksetyadi`
+`#Robby`
+`#Yanbul`
+`Ary`
+`#Levady`
+`Wandre`
 
 Example Output:
-Team #1: Levady - Wandre
-Team #2: Robby - Ksetyadi
-Team #3: Armanto - Satya
-Team #4: Ary - Yanbul
+`Team #1: Levady - Wandre`
+`Team #2: Robby - Ksetyadi`
+`Team #3: Armanto - Satya`
+`Team #4: Ary - Yanbul`
